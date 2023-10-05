@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Website</title>
+</head>
+<body>
+    <h1>Welcome to My Website</h1>
+    <p>Click the buttons below to join my Discord server or get my WhatsApp number:</p>
+
+    <!-- Button to join Discord server -->
+    <button id="discordButton">Join my Discord server NOW!!</button>
+
+    <!-- Button to open WhatsApp with your number -->
+    <button id="whatsappButton">Here's my WhatsApp number</button>
+
+    <script>
+        // Function to open a new tab with WhatsApp number when the button is clicked
+        document.getElementById("whatsappButton").addEventListener("click", function() {
+            // Replace '049999999' with your actual WhatsApp number
+            var whatsappNumber = "049999999";
+            
+            // Open a new tab with the WhatsApp link
+            var whatsappLink = "https://api.whatsapp.com/send?phone=" + whatsappNumber;
+            window.open(whatsappLink, "_blank");
+        });
+
+        // Function to redirect to Discord server when the button is clicked
+        document.getElementById("discordButton").addEventListener("click", function() {
+            // Replace 'YOUR_DISCORD_SERVER_INVITE_LINK' with your actual Discord server invite link
+            var discordServerLink = "YOUR_DISCORD_SERVER_INVITE_LINK";
+            
+            // Redirect to the Discord server invite link
+            window.location.href = discordServerLink;
+        });
+    </script>
+</body>
+</html>
