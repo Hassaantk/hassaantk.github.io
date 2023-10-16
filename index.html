@@ -3,102 +3,121 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to our Website Services</title>
+    <title>Your Website Design Service</title>
     <style>
         body {
             font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+        h1 {
             text-align: center;
         }
-
-        .container {
-            width: 50%;
-            margin: 0 auto;
-        }
-
-        h1 {
-            color: #c0392b;
-        }
-
         p {
-            color: #34495e;
-            font-size: 1.1em;
+            text-align: center;
         }
-
-        .price {
+        .pricing {
+            display: flex;
+            justify-content: space-around;
+        }
+        .price-card {
+            text-align: center;
+            padding: 20px;
+            background-color: #f9f9f9;
             border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .price-card h2 {
+            font-size: 24px;
+        }
+        .price-card p {
+            font-size: 18px;
+        }
+        .choose-button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .contact-form {
+            text-align: center;
+        }
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            width: 100%;
             padding: 10px;
             margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
         }
-
-        .choose-btn {
-            background-color: #3498db;
-            color: #fff;
-            padding: 8px 16px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-
-        .contact-form {
-            margin-top: 30px;
-        }
-
-        input[type="text"] {
-            width: 100%;
-            padding: 12px;
-            margin: 8px 0;
-            box-sizing: border-box;
-        }
-
         input[type="submit"] {
-            background-color: #c0392b;
+            background-color: #007bff;
             color: #fff;
-            padding: 12px 20px;
             border: none;
-            border-radius: 4px;
+            padding: 10px 20px;
+            border-radius: 5px;
             cursor: pointer;
         }
-
-        input[type="submit"]:hover {
-            background-color: #a93226;
-        }
-
-        .contact-text {
-            margin-top: 30px;
-            font-size: 0.9em;
+        .discord-info {
+            text-align: center;
+            margin-top: 20px;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>Welcome!</h1>
-        <p>Welcome to the place where you can have a website designed for you by a blink of an eye. We can make you a website of any topic you desire, such as a marketing website, a website for your shops/restaurants, informative websites... for the ideal prices! Feel free to check out more details below and most importantly, don't hesitate!</p>
-        <div class="price">
-            <p>A text-only website with 1 à 2 pages: €5 <button class="choose-btn" onclick="showPopup('5')">Choose</button></p>
-            <p>A text & image website with 1 à 2 pages: €10 <button class="choose-btn" onclick="showPopup('10')">Choose</button></p>
-            <p>A text & image website with 1 à 10 pages: €15 (limited promo!) <button class="choose-btn" onclick="showPopup('15')">Choose</button></p>
+        <p>Welcome to the place where you can have a website designed for you in the blink of an eye. We can make you a website on any topic you desire, such as a marketing website, a website for your shops/restaurants, informative websites, and more, all at ideal prices! Feel free to check out more details below, and most importantly, don't hesitate!</p>
+        
+        <div class="pricing">
+            <div class="price-card">
+                <h2>A text-only website with 1 à 2 pages</h2>
+                <p>€5</p>
+                <button class="choose-button" onclick="showPopup('TextOnly')">Choose</button>
+            </div>
+            <div class="price-card">
+                <h2>A text & image website with 1 à 2 pages</h2>
+                <p>€10</p>
+                <button class="choose-button" onclick="showPopup('TextAndImage')">Choose</button>
+            </div>
+            <div class="price-card">
+                <h2>A text & image website with 1 à 10 pages</h2>
+                <p>€15 (limited promo!)</p>
+                <button class="choose-button" onclick="showPopup('TextAndImageLimited')">Choose</button>
+            </div>
         </div>
+
         <div class="contact-form">
-            <h2>Have a question?</h2>
-            <p>Feel free to ask by filling out your personal details.</p>
-            <form>
-                <input type="text" placeholder="Name" required><br>
-                <input type="text" placeholder="Email" required><br>
-                <input type="text" placeholder="Question" required><br>
+            <h2>Contact Us</h2>
+            <p>Have a question? Feel free to ask by filling out your personal details.</p>
+            <form id="contactForm" method="post" action="mailto:hassaantk@gmail.com">
+                <input type="text" name="name" placeholder="Name" required>
+                <input type="email" name="email" placeholder="Email" required>
+                <textarea name="message" placeholder="Your Message" required></textarea>
                 <input type="submit" value="Submit">
             </form>
         </div>
-        <p class="contact-text">You can contact me directly via Discord: xtopg</p>
+
+        <div class="discord-info">
+            <p>You can contact me directly via Discord: Ayyub</p>
+        </div>
     </div>
 
     <script>
-        function showPopup(price) {
-            var email = 'baselkarjo24@gmail.com';
-            var userInput = prompt('Please enter your personal details to proceed with the €' + price + ' option:');
-            if (userInput) {
-                var details = 'Personal Details: ' + userInput + '\nChosen Price: €' + price;
-                window.open('mailto:' + email + '?subject=Website Design Request&body=' + details);
-            }
+        function showPopup(serviceType) {
+            // Implement the popup logic here using JavaScript and CSS
         }
     </script>
 </body>
