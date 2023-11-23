@@ -1,12 +1,35 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Welcome Page</title>
-</head>
-<body>
-    <h1>Welcome! Check this out!</h1>
-    <a href="https://upload.wikimedia.org/wikipedia/en/9/9a/Trollface_non-free.png" target="_blank">
-        <button>WhatsApp</button>
-    </a>
-</body>
-</html>
+```javascript
+function generateEmails() {
+var emails = [];
+var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+
+for (var i = 0; i < 10; i++) {
+var password = '';
+var email = '';
+
+// Generate random password
+for (var j = 0; j < 8; j++) {
+password += characters.charAt(Math.floor(Math.random() * characters.length));
+}
+
+// Generate email using password
+email = 'user' + (i + 1) + '@example.com';
+
+emails.push({ email: email, password: password });
+}
+
+// Output the generated emails and passwords
+emails.forEach(function(item) {
+console.log('Email: ' + item.email + ', Password: ' + item.password);
+});
+}
+
+// Call the function when the button is clicked
+document.getElementById('generateButton').addEventListener('click', generateEmails);
+```
+
+To use this code, make sure you have a button element with the id `generateButton` in your HTML, like this:
+
+```html
+Generate Emails
+```
