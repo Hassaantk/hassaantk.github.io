@@ -1,35 +1,44 @@
-```javascript
-function generateEmails() {
-var emails = [];
-var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+Certainly! Here's a script you can use:
 
-for (var i = 0; i < 10; i++) {
+```javascript
+function generateEmails(numEmails) {
+var emails = [];
+var characters = "abcdefghijklmnopqrstuvwxyz0123456789";
+
+for (var i = 0; i < numEmails; i++) {
 var password = '';
 var email = '';
 
 // Generate random password
 for (var j = 0; j < 8; j++) {
-password += characters.charAt(Math.floor(Math.random() * characters.length));
+var randomIndex = Math.floor(Math.random() * characters.length);
+password += characters.charAt(randomIndex);
 }
 
-// Generate email using password
-email = 'user' + (i + 1) + '@example.com';
+// Generate email address
+email = password + "@example.com";
 
 emails.push({ email: email, password: password });
 }
 
-// Output the generated emails and passwords
-emails.forEach(function(item) {
-console.log('Email: ' + item.email + ', Password: ' + item.password);
-});
+return emails;
 }
 
-// Call the function when the button is clicked
-document.getElementById('generateButton').addEventListener('click', generateEmails);
+function displayEmails() {
+var numEmails = 10; // Change this value to generate a different number of emails
+
+var emails = generateEmails(numEmails);
+
+// Display the emails and passwords
+for (var i = 0; i < emails.length; i++) {
+console.log("Email: " + emails[i].email + " | Password: " + emails[i].password);
+}
+}
+
+// Call the displayEmails function when the button is clicked
+document.getElementById('generateButton').addEventListener('click', displayEmails);
 ```
 
-To use this code, make sure you have a button element with the id `generateButton` in your HTML, like this:
+To use this script, include it in your HTML file where you want the button to appear. Make sure to replace the `generateButton` with the appropriate ID of your button.
 
-```html
-Generate Emails
-```
+When the button is clicked, the script will generate 10 random email addresses with passwords and display them in the console. You can modify the `numEmails` variable to generate a different number of emails each time.
